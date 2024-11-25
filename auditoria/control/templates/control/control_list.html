@@ -1,0 +1,65 @@
+{% extends 'control/base.html' %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <script src="https://cdn.tailwindcss.com"></script>
+        <h1 class="text-2xl font-bold mb-4">Lista de Controles</h1>
+        
+        {% if data %}
+            {% for control in data %}
+                <div class="bg-white shadow rounded-lg overflow-hidden mb-4">
+                    <div class="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <ul class="list-none space-y-4 col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <li class="flex flex-col">
+                                <span class="font-bold">ID Control:</span>
+                                <span>{{ control.id_control }}</span>
+                            </li>
+                            <li class="flex flex-col">
+                                <span class="font-bold">Estado:</span>
+                                <span>{{ control.estado|default:"No disponible" }}</span>
+                            </li>
+                            <li class="flex flex-col"> 
+                                <a href="{% url 'add_encabezado_control' control.id_control %}" class="border border-black text-black font-bold py-2 px-4 rounded inline-block hover:bg-black hover:text-white hover:border-white">Encabezado</a> 
+                            </li>
+                            <li class="flex flex-col">
+                                <span class="font-bold">Diseño:</span>
+                                <span>{{ control.diseño|default:"No disponible" }}</span>
+                            </li>
+                            <li class="flex flex-col">
+                                <span class="font-bold">Control:</span>
+                                <span>{{ control.nombre_control }}</span>
+                            </li>
+                            <li class="flex flex-col">
+                                <span class="font-bold">Conclusión:</span>
+                                <span>{{ control.conclusion|default:"No disponible" }}</span>
+                            </li>
+                            <li class="flex flex-col">
+                                <a href="{% url 'add_validacion_diseno' control.id_control %}" class="border border-black text-black font-bold py-2 px-4 rounded inline-block hover:bg-black hover:text-white hover:border-white">Diseño</a>
+                            </li>
+                            <li class="flex flex-col">
+                                <span class="font-bold">Auditor:</span>
+                                <span>{{ control.auditor }}</span>
+                            </li>
+                            <li class="flex flex-col">
+                                <span class="font-bold">Código Control:</span>
+                                <span>{{ control.codigo_control }}</span>
+                            </li>
+                            <li class="flex flex-col">
+                                <span class="font-bold">Prioridad:</span>
+                                <span>{{ control.prioridad }}</span>
+                            </li>
+                            <li class="flex flex-col">
+                                <a href="{% url 'control' control.id_control %}" class="border border-black text-black font-bold py-2 px-4 rounded inline-block hover:bg-black hover:text-white hover:border-white">Información Control</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No hay controles disponibles para mostrar.</p>
+        {% endif %}
+    {% else %}
+        <h1 class="text-2xl font-bold">Necesitas autenticarte antes de ingresar a esta página</h1>
+        <a href="{% url 'login' %}" class="text-blue-500 hover:underline">Inicia sesión aquí</a>
+    {% endif %}
+{% endblock %}

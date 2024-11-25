@@ -1,0 +1,63 @@
+{% extends 'control/base.html' %}
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <script src="https://cdn.tailwindcss.com"></script>
+        <h1 class="text-2xl font-bold mb-4">Detalles del Control</h1>
+        <div class="bg-white shadow rounded-lg overflow-hidden p-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-3">
+                <div class="flex flex-col">
+                    <span class="font-bold">ID:</span>
+                    <span>{{ control.id }}</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold">Nombre:</span>
+                    <span>{{ control.nombre }}</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold">Código:</span>
+                    <span>{{ control.codigo }}</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold">Objetivo:</span>
+                    <span>{{ control.objetivo }}</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold">Frecuencia:</span>
+                    <span>{{ control.frecuencia }}</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold">Clasificación:</span>
+                    <span>{{ control.clasificacion }}</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold">Tipología:</span>
+                    <span>{{ control.tipologia }}</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold">Descripción:</span>
+                    <span>{{ control.descripcion }}</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold">Ciclo:</span>
+                    <span>{{ control.ciclo }}</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold">Año:</span>
+                    <span>{{ control.año }}</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold">Auditor:</span>
+                    <span>{{ control.auditor.nombre_completo }}</span>
+                </div>
+            </div>
+        </div>
+        <br>
+        <a href="{% url 'control_list' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Listado controles</a>
+
+    {% else %}
+        <h1 class="text-2xl font-bold">Necesitas autenticarte antes de ingresar a esta página</h1>
+        <a href="{% url 'login' %}" class="text-blue-500 hover:underline">Inicia sesión aquí</a>
+    {% endif %}
+
+{% endblock %}

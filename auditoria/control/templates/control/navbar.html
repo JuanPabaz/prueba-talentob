@@ -1,0 +1,29 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<nav class="bg-black p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="flex items-center space-x-4">
+      <a class="text-white text-lg font-semibold" href="#">Tessox</a>
+      <a class="text-gray-300 hover:text-white" href="{% url 'control_list' %}">Controles</a>
+    </div>
+    <button class="text-white block lg:hidden" id="navbar-toggle">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+    <div class="hidden lg:flex lg:items-center lg:w-auto" id="navbar-content">
+      <form class="flex space-x-4 mt-4 lg:mt-0">
+          {% if user.is_authenticated %}
+          <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" href="{% url 'logout_user' %}">Logout</a>
+        {% else %}
+          <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="{% url 'login_user' %}">Login</a>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+</nav>
+
+<script>
+document.getElementById('navbar-toggle').addEventListener('click', function() {
+  document.getElementById('navbar-content').classList.toggle('hidden');
+});
+</script>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tailwind CSS Demo</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <br>
+        <div class="container mx-auto p-4"> 
+            {% if messages %}
+                {% for message in messages %}
+                <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative mb-4" role="alert">
+                    {{ message }}
+                    <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                        <svg class="fill-current h-6 w-6 text-yellow-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <title>Close</title>
+                            <path d="M14.348 5.652a.5.5 0 000-.708L10.707 1.302a1 1 0 00-1.414 0L5.652 5.652a.5.5 0 000 .708l4.241 4.241a.5.5 0 00.708 0l4.241-4.241zM10 7.414L5.759 3.173a1 1 0 10-1.414 1.414L7.414 10l-3.707 3.707a1 1 0 001.414 1.414L10 12.586l4.241 4.241a1 1 0 001.414-1.414L12.586 10l3.707-3.707a1 1 0 10-1.414-1.414L10 7.414z" />
+                        </svg>
+                    </span>
+                </div>
+                {% endfor %}
+            {% endif %}
+            <h1 class="text-2xl font-bold mb-4">Login</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
+                    <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="username" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                    <input type="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="password">
+                </div>
+                <div class="mb-3">
+                    <label for="cargoSelect" class="block text-gray-700 text-sm font-bold mb-2">Cargo</label>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cargoSelect" name="cargo">
+                        <option value="auditor">Auditor</option> <!-- Aquí puedes agregar más opciones si es necesario -->
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="yearSelect" class="block text-gray-700 text-sm font-bold mb-2">Año</label>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="yearSelect" name="ano">
+                        {% for year in years %}
+                            <option value="{{ year }}">{{ year }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="testingSelect" class="block text-gray-700 text-sm font-bold mb-2">Testing</label>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="testingSelect" name="testing">
+                        <option value="Semestre 1">Semestre 1</option>
+                        <option value="Semestre 2">Semestre 2</option>
+                    </select>
+                </div>
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>
