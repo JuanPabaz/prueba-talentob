@@ -11,6 +11,18 @@
                 messageBox.classList.add('hidden');  // Ocultar el cuadro de mensaje
             }
         </script>
+        <style>
+            .image-credit {
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+                background-color: rgba(255, 255, 255, 0.7);
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-size: 12px;
+                color: #000;
+            }
+        </style>
     </head>
     <body class="bg-gray-100 flex items-center justify-center min-h-screen bg-cover bg-center" style="background-image: url('../static/imagenbancolombia.jpg');">
         <div class="container mx-auto p-4 max-w-lg bg-white shadow-lg rounded-lg">
@@ -59,8 +71,15 @@
                         <option value="Semestre 2">Semestre 2</option>
                     </select>
                 </div>
-                <button type="submit" class="w-full border-solid border-2 border-black text-black font-bold py-2 px-4 rounded inline-block hover:bg-black hover:text-white hover:border-white">Iniciar sesion</button>
+                <button type="submit" class="w-full border-solid border-2 border-black text-black font-bold py-2 px-4 rounded inline-block hover:bg-black hover:text-white hover:border-white">Iniciar sesión</button>
             </form>
+        </div>
+
+        <div class="image-credit">
+            Imagen tomada de: 
+            <a href="https://www.grupobancolombia.com/wcm/connect/www.grupobancolombia.com15880/d34bb2c5-f7ba-4b36-acc2-f8e3e14979b0/image%2B31.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_K9HC1202PGD140QU35SB3R10O3-d34bb2c5-f7ba-4b36-acc2-f8e3e14979b0-o26S8kg" target="_blank" class="text-blue-500 underline">
+                https://www.grupobancolombia.com/wcm/connect/www.grupobancolombia.com15880/d34bb2c5-f7ba-4b36-acc2-f8e3e14979b0/image%2B31.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_K9HC1202PGD140QU35SB3R10O3-d34bb2c5-f7ba-4b36-acc2-f8e3e14979b0-o26S8kg
+            </a>
         </div>
     </body>
 </html>
