@@ -42,44 +42,10 @@
         }
     },
     {
-        "model": "control.validaciondiseño",
-        "pk": 1,
-        "fields": {
-            "control": 1,
-            "fecha_ejecucion": "2024-11-26",
-            "nombre_ejecutor": "Carlos González",
-            "cargo": "Auditor Técnico",
-            "area": "Seguridad Informática",
-            "comentarios": "Se verificó que todos los controles están funcionando según lo previsto.",
-            "conclusion": "Cumple con los requisitos establecidos."
-        }
-    },
-    {
         "model": "control.pregunta",
         "pk": 1,
         "fields": {
             "texto": "¿Se han implementado correctamente los controles de acceso?"
-        }
-    },
-    {
-        "model": "control.respuesta",
-        "pk": 1,
-        "fields": {
-            "validacion": 1,
-            "pregunta": 1,
-            "respuesta": "Sí",
-            "explicacion": "Los controles de acceso están configurados adecuadamente en todos los sistemas."
-        }
-    },
-    {
-        "model": "control.encabezado",
-        "pk": 1,
-        "fields": {
-            "control": 1,
-            "fecha": "2024-11-26",
-            "horas_totales": 15.50,
-            "estado": "En Proceso",
-            "respuesta": "Aún se están revisando algunos aspectos técnicos."
         }
     }
 ]
