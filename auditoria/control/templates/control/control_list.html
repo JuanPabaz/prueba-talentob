@@ -16,10 +16,15 @@
                             </li>
                             <li class="flex flex-col">
                                 <span class="font-bold">Estado:</span>
-                                <span>{{ control.estado|default:"No disponible" }}</span>
+                                <span 
+                                    class="{% if control.estado == 'Terminado' %}font-bold text-green-500
+                                        {% elif control.estado == 'En Proceso' %}font-bold text-yellow-500
+                                        {% endif %}">
+                                    {{ control.estado|default:"No disponible" }}
+                                </span>
                             </li>
                             <li class="flex flex-col"> 
-                                <a href="{% url 'add_encabezado_control' control.id_control %}" class="border border-black text-black font-bold py-2 px-4 rounded inline-block hover:bg-black hover:text-white hover:border-white">Encabezado</a> 
+                                <a href="{% url 'add_encabezado_control' control.id_control %}" class="border-solid border-2 border-black text-black font-bold py-2 px-4 rounded inline-block hover:bg-black hover:text-white hover:border-white">Encabezado</a> 
                             </li>
                             <li class="flex flex-col">
                                 <span class="font-bold">Diseño:</span>
@@ -34,7 +39,7 @@
                                 <span>{{ control.conclusion|default:"No disponible" }}</span>
                             </li>
                             <li class="flex flex-col">
-                                <a href="{% url 'add_validacion_diseno' control.id_control %}" class="border border-black text-black font-bold py-2 px-4 rounded inline-block hover:bg-black hover:text-white hover:border-white">Diseño</a>
+                                <a href="{% url 'add_validacion_diseno' control.id_control %}" class="border-solid border-2 border-white text-white font-bold py-2 px-4 rounded inline-block bg-black hover:bg-white hover:text-black hover:border-black">Diseño</a>
                             </li>
                             <li class="flex flex-col">
                                 <span class="font-bold">Auditor:</span>
@@ -49,7 +54,7 @@
                                 <span>{{ control.prioridad }}</span>
                             </li>
                             <li class="flex flex-col">
-                                <a href="{% url 'control' control.id_control %}" class="border border-black text-black font-bold py-2 px-4 rounded inline-block hover:bg-black hover:text-white hover:border-white">Información Control</a>
+                                <a href="{% url 'control' control.id_control %}" class="border-solid border-2 border-black text-black font-bold py-2 px-4 rounded inline-block hover:bg-black hover:text-white hover:border-white">Información Control</a>
                             </li>
                         </ul>
                     </div>
